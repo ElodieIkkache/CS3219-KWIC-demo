@@ -1,3 +1,5 @@
+I Hope it works
+
 # KWIC Demo project
 This is a [Maven](https://maven.apache.org/index.html) project. You need to install Maven first before coding.
 The project is developed with **Java 8**. Make sure you have appropriate [SDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) installed on your machine.
