@@ -35,7 +35,7 @@ public class RequiredWordsFilterTest {
 		
 		assertEquals(2, afterFilterLineStorage.size());
 
-		assertEquals("Man of Steel", afterFilterLineStorage.get(0).toString());
-		assertEquals("Steel Man of", afterFilterLineStorage.get(1).toString());
+		assertEquals("man of steel", afterFilterLineStorage.get(0).toString());
+		assertEquals("steel man of", afterFilterLineStorage.get(1).toString());
 	}
 }
