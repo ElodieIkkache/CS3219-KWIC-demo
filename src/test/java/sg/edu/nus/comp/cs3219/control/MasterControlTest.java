@@ -46,12 +46,12 @@ public class MasterControlTest {
 		List<String> result = master.run(input, ignoreWords, requireWords);
 
 		assertEquals(6, result.size());
-		assertEquals("Day after Tomorrow the", result.get(0));
-		assertEquals("Fast and Furious", result.get(1));
-		assertEquals("Furious Fast and", result.get(2));
-		assertEquals("Man of Steel", result.get(3));
-		assertEquals("Steel Man of", result.get(4));
-		assertEquals("Tomorrow the Day after", result.get(5));
+		assertEquals("Day after tomorrow the", result.get(0));
+		assertEquals("Fast and furious", result.get(1));
+		assertEquals("Furious fast and", result.get(2));
+		assertEquals("Man of steel", result.get(3));
+		assertEquals("Steel man of", result.get(4));
+		assertEquals("Tomorrow the day after", result.get(5));
 	}
 	
 	@Test
@@ -83,10 +83,10 @@ public class MasterControlTest {
 
 		assertEquals(6, result.size());
 		assertEquals("Day after tomorrow the", result.get(0));
-		assertEquals("Fast and Furious", result.get(1));
-		assertEquals("Furious Fast and", result.get(2));
-		assertEquals("Man of Steel", result.get(3));
-		assertEquals("Steel Man of", result.get(4));
+		assertEquals("Fast and furious", result.get(1));
+		assertEquals("Furious fast and", result.get(2));
+		assertEquals("Man of steel", result.get(3));
+		assertEquals("Steel man of", result.get(4));
 		assertEquals("Tomorrow the day after", result.get(5));
 	}
 	
