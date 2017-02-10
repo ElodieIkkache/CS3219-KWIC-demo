@@ -22,7 +22,12 @@ public class MasterControlTest {
 	@Test
 	public void testExample1() {
 		Set<String> requireWords = new HashSet<>();
-		
+		requireWords.add("day");
+		requireWords.add("fast");
+		requireWords.add("furious");
+		requireWords.add("man");
+		requireWords.add("steel");
+		requireWords.add("tomorrow");
 		
 		Set<String> ignoreWords = new HashSet<>();
 		ignoreWords.add("is");
@@ -53,7 +58,12 @@ public class MasterControlTest {
 	public void testExample2() {
 		
 		Set<String> requireWords = new HashSet<>();
-		
+		requireWords.add("day");
+		requireWords.add("fast");
+		requireWords.add("furious");
+		requireWords.add("man");
+		requireWords.add("steel");
+		requireWords.add("tomorrow");
 		
 		Set<String> ignoreWords = new HashSet<>();
 		ignoreWords.add("is");
