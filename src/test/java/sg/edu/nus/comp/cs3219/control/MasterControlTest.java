@@ -134,7 +134,7 @@ public class MasterControlTest {
 	}
 	
 	@Test
-	public void testExample3() {
+	public void testExample5() {
 		
 		Set<String> ignoreWords = new HashSet<>();
 		ignoreWords.add("is");
