@@ -14,10 +14,12 @@ public class MasterControl {
 
 	private LineStorage rawInputLines;
 	private LineStorage resultLines;
+	private LineStorage rawResultLines;
 
 	public MasterControl() {
 		// Storage
 		rawInputLines = new LineStorage();
+		rawResultLines = new LineStorage();
 		resultLines = new LineStorage();
 
 		// Sub-modules

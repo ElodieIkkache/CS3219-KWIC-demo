@@ -21,6 +21,9 @@ public class MasterControlTest {
 
 	@Test
 	public void testExample1() {
+		Set<String> requireWords = new HashSet<>();
+		
+		
 		Set<String> ignoreWords = new HashSet<>();
 		ignoreWords.add("is");
 		ignoreWords.add("the");
@@ -35,7 +38,7 @@ public class MasterControlTest {
 		input.add("Fast and Furious");
 		input.add("Man of Steel");
 
-		List<String> result = master.run(input, ignoreWords);
+		List<String> result = master.run(input, ignoreWords, requireWords);
 
 		assertEquals(6, result.size());
 		assertEquals("Day after Tomorrow the", result.get(0));
@@ -48,6 +51,10 @@ public class MasterControlTest {
 	
 	@Test
 	public void testExample2() {
+		
+		Set<String> requireWords = new HashSet<>();
+		
+		
 		Set<String> ignoreWords = new HashSet<>();
 		ignoreWords.add("is");
 		ignoreWords.add("the");
@@ -62,7 +69,7 @@ public class MasterControlTest {
 		input.add("Fast and Furious");
 		input.add("Man of Steel");
 
-		List<String> result = master.run(input, ignoreWords);
+		List<String> result = master.run(input, ignoreWords, requireWords);
 
 		assertEquals(6, result.size());
 		assertEquals("Day after tomorrow the", result.get(0));
@@ -71,6 +78,89 @@ public class MasterControlTest {
 		assertEquals("Man of Steel", result.get(3));
 		assertEquals("Steel Man of", result.get(4));
 		assertEquals("Tomorrow the day after", result.get(5));
+	}
+	
+	
+	@Test
+	public void testExample3() {
+		
+		Set<String> ignoreWords = new HashSet<>();
+		ignoreWords.add("is");
+		ignoreWords.add("the");
+		ignoreWords.add("of");
+		ignoreWords.add("and");
+		ignoreWords.add("as");
+		ignoreWords.add("a");
+		ignoreWords.add("after");
+		
+		
+		Set<String> requireWords = new HashSet<>();
+		requireWords.add("fast");
+		requireWords.add("man");
+		
+
+		List<String> input = new ArrayList<>();
+		input.add("The day after tomorrow");
+		input.add("Fast and Furious");
+		input.add("Man of Steel");
+		
+		List<String> result = master.run(input, ignoreWords, requireWords);
+
+		assertEquals(2, result.size());
+		assertEquals("Fast and Furious", result.get(0));
+		assertEquals("Man of Steel", result.get(1));
+	}
+	
+	@Test
+	public void testExample4() {
+		
+		Set<String> ignoreWords = new HashSet<>();
+		
+		Set<String> requireWords = new HashSet<>();
+		requireWords.add("fast");
+		requireWords.add("man");
+		
+
+		List<String> input = new ArrayList<>();
+		input.add("The day after tomorrow");
+		input.add("Fast and Furious");
+		input.add("Man of Steel");
+		
+		List<String> result = master.run(input, ignoreWords, requireWords);
+
+		assertEquals(2, result.size());
+		assertEquals("Fast and Furious", result.get(0));
+		assertEquals("Man of Steel", result.get(1));
+	}
+	
+	@Test
+	public void testExample3() {
+		
+		Set<String> ignoreWords = new HashSet<>();
+		ignoreWords.add("is");
+		ignoreWords.add("the");
+		ignoreWords.add("of");
+		ignoreWords.add("and");
+		ignoreWords.add("as");
+		ignoreWords.add("a");
+		ignoreWords.add("after");
+		ignoreWords.add("fast");
+		
+		
+		Set<String> requireWords = new HashSet<>();
+		requireWords.add("fast");
+		requireWords.add("man");
+		
+
+		List<String> input = new ArrayList<>();
+		input.add("The day after tomorrow");
+		input.add("Fast and Furious");
+		input.add("Man of Steel");
+		
+		List<String> result = master.run(input, ignoreWords, requireWords);
+
+		assertEquals(1, result.size());
+		assertEquals("Man of Steel", result.get(0));
 	}
 }
 
