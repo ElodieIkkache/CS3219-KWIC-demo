@@ -40,7 +40,7 @@ public class MasterControl {
 		resultLines.clearLines();
 		rawResultLines.clearLines();
 
-		// Set ignore words (make them lowercase for comparison)
+		// Set ignore words and required words (make them lowercase for comparison)
 		shifter.setIgnoreWords(this.transformSetToLowercase(ignoredWords));
 		requireFilter.setRequiredWords(this.transformSetToLowercase(requiredWords));
 		
