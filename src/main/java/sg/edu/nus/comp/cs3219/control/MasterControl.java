@@ -29,27 +29,48 @@ public class MasterControl {
 		alphabetizer = new Alphabetizer();
 		requireFilter = new RequiredWordsFilter(rawResultLines);
 
-		// Set up observation
-		rawInputLines.addObserver(shifter);
-		resultLines.addObserver(requireFilter);
-		rawResultLines.addObserver(alphabetizer);
 	}
 
 	public List<String> run(List<String> input, Set<String> ignoredWords, Set<String> requiredWords) {
 		rawInputLines.clearLines();
 		resultLines.clearLines();
 		rawResultLines.clearLines();
+		
+		// Set up observation
+		rawInputLines.addObserver(shifter);
+		resultLines.addObserver(requireFilter);
+		rawResultLines.addObserver(alphabetizer);
 
 		// Set ignore words and required words (make them lowercase for comparison)
 		shifter.setIgnoreWords(this.transformSetToLowercase(ignoredWords));
 		requireFilter.setRequiredWords(this.transformSetToLowercase(requiredWords));
 		
-		// Add data line by line
-		for (String line : input) {
-			rawInputLines.addLine(line);
-		}
 		
-		return rawResultLines.getAll();
+		if (requiredWords.isEmpty()) {
+			// Set up observation
+			rawInputLines.addObserver(shifter);
+			resultLines.addObserver(alphabetizer);
+			
+			// Add data line by line
+			for (String line : input) {
+				rawInputLines.addLine(line);
+			}
+		
+			return resultLines.getAll();
+		}
+		else {
+			// Set up observation
+			rawInputLines.addObserver(shifter);
+			resultLines.addObserver(requireFilter);
+			rawResultLines.addObserver(alphabetizer);
+			
+			// Add data line by line
+			for (String line : input) {
+				rawInputLines.addLine(line);
+			}
+		
+			return rawResultLines.getAll();
+		}
 	}
 	
 	private Set<String> transformSetToLowercase(Set<String> set) {
