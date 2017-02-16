@@ -190,12 +190,17 @@ public class MainView extends JFrame implements KwicUi {
 	@Override
 	public Set<String> getRequiredWords() {
 		String requiredWords = requiredWordsInput.getText();
-		String[] requiredWordsList = requiredWords.split("\n");
 		Set<String> requiredWordsSet = new HashSet<>();
-		for (String word : requiredWordsList) {
-			requiredWordsSet.add(word);
+		if (requiredWords.length() == 0) {
+			return requiredWordsSet;
 		}
-		return requiredWordsSet;
+		else {
+			String[] requiredWordsList = requiredWords.split("\n");
+			for (String word : requiredWordsList) {
+				requiredWordsSet.add(word);
+			}
+			return requiredWordsSet;
+		}
 	}
 
 	@Override

@@ -41,7 +41,7 @@ public class MasterControl {
 		shifter.setIgnoreWords(this.transformSetToLowercase(ignoredWords));
 		requireFilter.setRequiredWords(this.transformSetToLowercase(requiredWords));
 		
-		if (requiredWords.size() == 1) {
+		if (requiredWords.size() == 0) {
 			
 			// Set up observation
 			rawInputLines.addObserver(shifter);
